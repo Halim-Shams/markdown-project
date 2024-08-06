@@ -1,11 +1,19 @@
 import React from 'react';
-import Body from './components/Body';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import Home from './pages/Home';
+import Preview from './pages/Preview';
+import ContextProvider from './context/ContextProvider';
 
 const App = () => {
 	return (
-		<div className='flex items-center justify-center'>
-			<Body />
-		</div>
+		<ContextProvider>
+			<BrowserRouter>
+				<Routes>
+					<Route path='/' element={<Home />} />
+					<Route path='/preview' element={<Preview />} />
+				</Routes>
+			</BrowserRouter>
+		</ContextProvider>
 	);
 };
 
